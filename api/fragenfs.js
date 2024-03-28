@@ -64,6 +64,7 @@ exports.delete = function (id) {
    return fragen;
 }
 exports.getAll = function () {
+   this.load();
    return fragen;
 }
 exports.getRandom = function (n) {
@@ -77,4 +78,4 @@ exports.getRandom = function (n) {
    return arr;
 }
 
-this.load();
+//this.load();
