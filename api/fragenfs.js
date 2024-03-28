@@ -36,9 +36,19 @@ exports.delete = function (id) {
    return fragen;
 }
 exports.getAll = function () {
+   if (fs.existsSync(fn)) {
+      console.log(`lese ${fn}`);
+      const s = fs.readFileSync(fn, 'utf-8');
+      fragen = JSON.parse(s);
+   }
+   else {
+      console.log(`schreibe ${fn}`);
+      fs.writeFileSync(fn, JSON.stringify(fragen));
+   }
    return fragen;
 }
 exports.getRandom = function (n) {
+   this.getAll();
    const max = fragen.length;
    var arr = [];
    for (let i = 0; i < n; i++) {
