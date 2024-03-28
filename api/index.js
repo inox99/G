@@ -1,5 +1,6 @@
 const express = require("express");
-const fragen = require("./fragen");
+//const fragen = require("./fragen");
+const fragen = require("./fragenfs");
 
 const app = express();
 
