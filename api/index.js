@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get("/", (req, res) => res.send("Express on Vercel 2"));
+app.get("/", (req, res) => res.send("Express on Vercel 4"));
 app.get("/quizfragen", function (req, res) {
    const q = req.query;
    //const r = zufallszahlen();
