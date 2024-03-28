@@ -14,15 +14,7 @@ var fragen = [
 ];
 
 exports.get = function (Id) {
-   if (fs.existsSync(fn)) {
-      console.debug(`lese ${fn}`);
-      const s = fs.readFileSync(fn, 'utf-8');
-      fragen = JSON.parse(s);
-   }
-   else {
-      console.debug(`schreibe ${fn}`);
-      fs.writeFileSync(fn, JSON.stringify(fragen));
-   }
+   this.getAll();
    return fragen;
 }
 exports.update = function (Id, frage) {
@@ -36,14 +28,28 @@ exports.delete = function (id) {
    return fragen;
 }
 exports.getAll = function () {
-   if (fs.existsSync(fn)) {
-      console.log(`lese ${fn}`);
-      const s = fs.readFileSync(fn, 'utf-8');
-      fragen = JSON.parse(s);
+   if (fs.existsSync("/tmp")) {
+      const fn2 = `/tmp/${fn}`;
+      if (fs.existsSync(`/tmp/${fn2}`)) {
+         console.log(`lese ${fn2}`);
+         const s = fs.readFileSync(fn2, 'utf-8');
+         fragen = JSON.parse(s);
+      }
+      else {
+         console.log(`schreibe ${fn2}`);
+         fs.writeFileSync(fn2, JSON.stringify(fragen));
+      }
    }
    else {
-      console.log(`schreibe ${fn}`);
-      fs.writeFileSync(fn, JSON.stringify(fragen));
+      if (fs.existsSync(fn)) {
+         console.log(`lese ${fn}`);
+         const s = fs.readFileSync(fn, 'utf-8');
+         fragen = JSON.parse(s);
+      }
+      else {
+         console.log(`schreibe ${fn}`);
+         fs.writeFileSync(fn, JSON.stringify(fragen));
+      }
    }
    return fragen;
 }
