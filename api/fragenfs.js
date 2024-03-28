@@ -67,7 +67,7 @@ exports.getAll = function () {
    return fragen;
 }
 exports.getRandom = function (n) {
-   this.getAll();
+   //this.getAll();
    const max = fragen.length;
    var arr = [];
    for (let i = 0; i < n; i++) {
