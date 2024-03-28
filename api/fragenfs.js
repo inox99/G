@@ -22,7 +22,7 @@ function load() {
          fragen = JSON.parse(s);
       }
       else {
-         this.save();
+         save();
       }
    }
    else {
