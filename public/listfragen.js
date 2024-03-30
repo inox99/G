@@ -10,6 +10,9 @@ fetch('/api/quizfragen?n=10')
 const e_fragentable = document.getElementById("id_fragentable");
 const e_loading = document.getElementById("id_loading");
 const e_editdlg = document.getElementById("id_editdlg");
+const e_editdlg_ha = document.getElementById("id_editdlg_ha");
+const e_editdlg_hb = document.getElementById("id_editdlg_hb");
+
 const e_editdlg_frageid = document.getElementById("id_editdlg_frageid");
 const e_editdlg_fragetext = document.getElementById("id_editdlg_fragetext");
 const e_editdlg_antwort_ja = document.getElementById("id_editdlg_antwort_ja");
@@ -91,15 +94,15 @@ function editDlg(id) {
    if (id >= 0) {
       id++;
       const row = e_fragentable.rows[id];
+      e_editdlg_ha.hidden = !(e_editdlg_hb.hidden = true);
       e_editdlg_frageid.innerText = row.cells[0].innerText;
-      e_editdlg_frageid.hidden = false;
       e_editdlg_fragetext.value = row.cells[1].innerText;
       e_editdlg_antwort_ja.checked = row.cells[2].innerText === "Ja";
       e_editdlg_antwort_nein.checked = row.cells[2].innerText === "Nein";
    }
    else {
+      e_editdlg_ha.hidden = !(e_editdlg_hb.hidden = false);
       e_editdlg_frageid.innerText = "";
-      e_editdlg_frageid.hidden = true;
       e_editdlg_fragetext.value = "";
       e_editdlg_antwort_ja.checked = !(e_editdlg_antwort_nein.checked = false);
    }
@@ -109,7 +112,8 @@ function editDlg(id) {
 
 function removeDlg(id) {
    console.debug(`removeDlg(${id})called`);
-   const row = e_fragentable.rows[id++];
+   id++;
+   const row = e_fragentable.rows[id];
    e_removedlg_frageid.innerText = row.cells[0].innerText;
    e_removedlg.showModal();
 }

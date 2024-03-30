@@ -63,11 +63,13 @@ exports.append = function (frage) {
    save();
    return fragen;
 }
-exports.delete = function (id) {
-   fragen.splice(id, 1);
+exports.delete = function (frage) {
+   const i = Number(frage.id);
+   fragen.splice(i, 1);
    save();
    return fragen;
 }
+
 exports.getAll = function () {
    return fragen;
 }
