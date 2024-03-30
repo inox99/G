@@ -3,9 +3,13 @@
 
 <head>
    <title>Quiz</title>
-   <script src="quiz.js" defer></script>
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self';"> -->
+   <!-- <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'unsafe-inline' 'self'; base-uri 'self'; form-action 'self'; "> -->
+   <!-- <script src="quiz.js" defer></script> -->
 
-   <style>
+   <!-- <style>
       h1 {
          text-align: center;
       }
@@ -13,14 +17,19 @@
       p {
          text-align: center;
       }
-   </style>
+   </style> -->
 </head>
 
 <body>
-   <h1>Quiz</h1>
+   <h3>Quiz</h3>
    <div id="e_d0">
       <p>
-         <button id="e_start" onclick="start()">Quiz starten</button>
+         <!-- <button id="e_start" onclick="start()">Quiz starten</button> -->
+         <!-- <button id="e_start">Quiz starten</button> -->
+         <a href="quizfragen.html">Quiz starten</a>
+      </p>
+      <p>
+         <a href="listfragen.html">Fragen bearbeiten</a>
       </p>
    </div>
 </body>

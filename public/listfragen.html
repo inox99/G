@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Fragenliste</title>
+   <script src="listfragen.js" defer></script>
+</head>
+
+<body id="listfragen">
+   <h3>Fragenliste</h3>
+
+   <div id="id_loading"></div>
+   <table id="id_fragentable">
+      <thead>
+         <tr>
+            <th>id</th>
+            <th>frage</th>
+            <th>antwort</th>
+            <th></th>
+         </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+   </table>
+   <div>
+      <button onclick="editDlg(-1)">Neue Frage</button>
+   </div>
+   <dialog id="id_editdlg">
+      <h5><span>Frage '</span><span id="id_editdlg_frageid"></span><span>' bearbeiten</span> </h5>
+      <div>Frage: </div>
+      <div>
+         <input id="id_editdlg_fragetext" type="text">
+      </div>
+      <div>
+         <label for="id_editdlg_antwort_ja"> Ja </label>
+         <input id="id_editdlg_antwort_ja" type="radio" name="frage">
+         <label for="id_editdlg_antwort_nein"> Nein </label>
+         <input id="id_editdlg_antwort_nein" type="radio" name="frage">
+      </div>
+      <div>
+         <button onclick="closedlg()">Abbruch</button>
+         <button onclick="speichern()">Speichern</button>
+      </div>
+   </dialog>
+   <dialog id="id_removedlg">
+      <h5><span>Frage '</span><span id="id_removedlg_frageid"></span><span>' löschen?</span> </h5>
+      <div>
+         <button onclick="closedlg()">Abbruch</button>
+         <button onclick="loeschen()">Löschen</button>
+      </div>
+   </dialog>
+</body>
+
+</html>

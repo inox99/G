@@ -38,29 +38,34 @@ function load() {
 }
 
 function save() {
+   let fn2;
    if (fs.existsSync("/tmp")) {
-      const fn2 = `/tmp/${fn}`;
-      console.log(`schreibe ${fn2}`);
-      fs.writeFileSync(fn2, JSON.stringify(fragen));
+      fn2 = `/tmp/${fn}`;
    }
    else {
-      console.log(`schreibe ${fn}`);
-      fs.writeFileSync(fn, JSON.stringify(fragen));
+      fn2 = fn;
    }
+   console.log(`schreibe ${fn2}`);
+   fs.writeFileSync(fn2, JSON.stringify(fragen));
 }
 
 exports.get = function (Id) {
    this.getAll();
    return fragen;
 }
-exports.update = function (Id, frage) {
+exports.update = function (frage) {
+   fragen[frage.id] = frage;
+   save();
    return fragen;
 }
 exports.append = function (frage) {
    fragen.push(frage);
+   save();
    return fragen;
 }
 exports.delete = function (id) {
+   fragen.splice(id, 1);
+   save();
    return fragen;
 }
 exports.getAll = function () {

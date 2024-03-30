@@ -3,6 +3,12 @@ var f = {//template
    text:'',
    antwort: 0 // 0=nein, 1=ja
 };
+/*
+{
+   "text": "Frage x",
+   "antwort": 0
+}
+*/
 var a = 0;
 var fragen = [
    { text: 'Frage 1', antwort: 0 },

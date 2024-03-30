@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Quiz durchführen</title>
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'">
+   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self';"> -->
+   <!-- <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'unsafe-inline' 'self'; base-uri 'self'; form-action 'self'; "> -->
+   <!-- <script src="quiz.js" defer></script> -->
+   <script src="quizfragen.js" defer="defer"></script>
+</head>
+
+<body>
+   <div hidden="true">
+   </div>
+   <h3>Quiz Fragen</h3>
+   <p>
+      <span id="e_text"></span>
+   </p>
+   <p id="e_antw" hidden="true ">
+      <button onclick="antwort(1)">Ja</button>
+      <button onclick="antwort(0)">nein</button>
+   </p>
+
+</html>
