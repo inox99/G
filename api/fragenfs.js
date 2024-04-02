@@ -1,5 +1,12 @@
+/*
+   https://nodejs.org/api/fs.html
+*/
 const fs = require('fs');
+
 const fn = "fragen.json";
+let pn;
+let ffn;
+
 var fragen = [
    { text: 'Frage 1 -', antwort: 0 },
    { text: 'Frage 2 -', antwort: 1 },
@@ -14,39 +21,14 @@ var fragen = [
 ];
 
 function load() {
-   if (fs.existsSync("/tmp")) {
-      const fn2 = `/tmp/${fn}`;
-      if (fs.existsSync(`/tmp/${fn2}`)) {
-         console.log(`lese ${fn2}`);
-         const s = fs.readFileSync(fn2, 'utf-8');
-         fragen = JSON.parse(s);
-      }
-      else {
-         save();
-      }
-   }
-   else {
-      if (fs.existsSync(fn)) {
-         console.log(`lese ${fn}`);
-         const s = fs.readFileSync(fn, 'utf-8');
-         fragen = JSON.parse(s);
-      }
-      else {
-         save();
-      }
-   }
+   console.debug(`lese ${ffn}`);
+   const s = fs.readFileSync(ffn, 'utf-8');
+   fragen = JSON.parse(s);
 }
 
 function save() {
-   let fn2;
-   if (fs.existsSync("/tmp")) {
-      fn2 = `/tmp/${fn}`;
-   }
-   else {
-      fn2 = fn;
-   }
-   console.log(`schreibe ${fn2}`);
-   fs.writeFileSync(fn2, JSON.stringify(fragen));
+   console.log(`schreibe ${ffn}`);
+   fs.writeFileSync(ffn, JSON.stringify(fragen));
 }
 
 exports.get = function (Id) {
@@ -82,6 +64,18 @@ exports.getRandom = function (n) {
       arr[i] = fragen[x];
    }
    return arr;
+}
+
+if (fs.existsSync("/tmp")) {
+   pn = "/tmp";
+}
+else
+   if (fs.existsSync("./tmp")) {
+      pn = "./tmp";
+   }
+ffn = `${pn}/${fn}`;
+if (pn && !fs.existsSync(ffn)) {
+   save();
 }
 
 load();

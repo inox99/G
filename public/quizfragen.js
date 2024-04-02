@@ -5,7 +5,6 @@ let n = 0;
 let fragen = [];
 
 function antwort(a) {
-   n++;
    if (n < fragen.length) {
       e_text.innerText = fragen[n].text;
    }
@@ -13,6 +12,7 @@ function antwort(a) {
       e_text.innerText = "Fragen ende";
       e_antw.hidden = true;
    }
+   n++;
 }
 
 e_text.innerText = "lade Fragen";

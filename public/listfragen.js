@@ -23,7 +23,7 @@ const e_removedlg_frageid = document.getElementById("id_removedlg_frageid");
 
 function tbl_Fragen(fragen) {
    //https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement
-   while (e_fragentable.rows.length > 1) {
+   for (let i = 0; i < e_fragentable.rows.length-1; i++) {
       e_fragentable.deleteRow(-1);
    }
    for (let i = 0; i < fragen.length; i++) {
@@ -31,7 +31,10 @@ function tbl_Fragen(fragen) {
       row.insertCell(0).innerText = i;
       row.insertCell(1).innerText = fragen[i].text;
       row.insertCell(2).innerText = fragen[i].antwort === 1 ? "Ja" : "Nein";
-      row.insertCell(3).innerHTML = `<button onclick="editDlg(${i})">bearbeiten</button><button onclick="removeDlg(${i})">löschen</button>`;
+      row.insertCell(3).innerHTML =
+         `<button class="btn" onclick="editDlg(${i})">bearbeiten</button>
+         <button class="btn" onclick="removeDlg(${i})">löschen</button>
+         `;
    }
 }
 
