@@ -17,3 +17,8 @@ https://github.com/vercel/vercel
 https://vercel.com/docs/infrastructure
 https://vercel.com/docs/functions/configuring-functions
 https://vercel.com/docs/functions/runtimes/edge-runtime
+
+https://vercel.com/guides/library-sdk-compatible-with-vercel-edge-runtime-and-functions
+
+https://edge-runtime.vercel.app/
+https://codesandbox.io/examples/package/edge-runtime

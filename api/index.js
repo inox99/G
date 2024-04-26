@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 //const fragen = require("./fragen");
-const fragen = require("./fragenfs");
+const fragen = require("./fragenfs.mjs");
 
 const app = express();
 
